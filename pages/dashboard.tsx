@@ -77,6 +77,41 @@ const Dashboard = () => {
           <div className="flex flex-wrap justify-between gap-3 p-4">
             <p className="text-[#111418] tracking-light text-[32px] font-bold leading-tight min-w-72">タスク一覧</p>
           </div>
+          <div className="flex justify-end p-4">
+            <select
+              onChange={async (e) => {
+                const sortOption = e.target.value;
+                try {
+                  const response = await fetch('https://app-jttkc6k2ua-uc.a.run.app/api/home', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ sort: sortOption }),
+                  });
+
+                  if (!response.ok) {
+                    throw new Error('Failed to fetch sorted tasks');
+                  }
+
+                  const data = await response.json();
+                  if (data && data.data && Array.isArray(data.data.tasks)) {
+                    setTasks(data.data.tasks); // Set the tasks state with the fetched sorted data
+                  } else {
+                    console.error("Tasks data is not in the expected format");
+                  }
+                } catch (error) {
+                  console.error('Error fetching sorted tasks:', error);
+                }
+              }}
+              className="bg-white border border-gray-300 rounded-md px-4 py-2 text-sm"
+            >
+              <option value="">並び順</option>
+              <option value="name">Name</option>
+              <option value="done=true">完了済み</option>
+              <option value="done=false">未完了</option>
+            </select>
+          </div>
 
           {tasks && tasks.length > 0 ? (
             tasks.map((task, index) => (
