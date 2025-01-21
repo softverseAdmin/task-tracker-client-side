@@ -93,6 +93,9 @@ const Dashboard = () => {
                     case "done=false":
                       sortedTasks.sort((a, b) => Number(a.done) - Number(b.done));
                       break;
+                    case "due_date":
+                        sortedTasks.sort((a, b) => (a.due_date ?? '').localeCompare(b.due_date ?? ''));
+                        break;
                     default:
                       break;
                   }
@@ -105,6 +108,7 @@ const Dashboard = () => {
                 <option value="name">名前</option>
                 <option value="done=true">完了済み</option>
                 <option value="done=false">未完了</option>
+                <option value="due_date">締切日</option>
               </select>
             </div>
 
