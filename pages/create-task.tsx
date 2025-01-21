@@ -94,16 +94,16 @@ const CreateTask: React.FC = () => {
   return (
     <>
     <AfterLogin />
-    <div className="layout-container flex h-full grow flex-col">
-      <div className="px-40 flex flex-1 justify-center py-5">
+    <div className="layout-container flex h-full grow flex-col items-center justify-center">
+      <div className="lg:px-40 md:px-24 sm:11 flex flex-1 justify-center py-5">
         <div className="layout-content-container flex flex-col w-[512px] py-5 flex-1">
-          <h3 className="text-[#111418] tracking-light text-2xl font-bold leading-tight px-4 text-left pb-2 pt-5">
+          <h3 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight pb-2">
             {isEdit ? 'タスク編集' : 'タスク作成'}
           </h3>
           <form onSubmit={handleSubmit}>
             <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
               <label className="flex flex-col min-w-40 flex-1">
-                <p className="text-[#111418] text-base font-medium leading-normal pb-2">タスク名</p>
+                <p className="text-[#111418] text-base font-xl leading-normal pb-2">タスク名</p>
                 <input
                   placeholder="Example: Design task details"
                   className="form-input flex w-full rounded-xl text-[#111418] bg-[#f0f2f4] h-14 p-4"

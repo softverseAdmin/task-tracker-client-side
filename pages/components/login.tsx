@@ -29,12 +29,12 @@ const Login: React.FC = () => {
     <>
       <BeforeLoginHeader />
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <div className="bg-white p-8 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+        <div className="bg-white p-8 rounded-lg shadow-lg w-full h-screen text-center justify-center">
+          <h1 className="text-4xl font-bold mb-6 text-center">ログイン</h1>
           {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
           <button 
             onClick={handleGoogleLogin} 
-            className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="flex w-full max-w-[480px] min-w-[84px] h-10 ml-auto mr-auto items-center justify-center overflow-hidden rounded-xl bg-[#f0f2f4] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em] px-4 cursor-pointer"
           >
             Login with Google
           </button>

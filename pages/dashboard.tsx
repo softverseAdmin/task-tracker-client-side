@@ -72,7 +72,7 @@ const Dashboard = () => {
   return (
     <>
       <AfterLoginHeader />
-      <div className="px-40 flex flex-1 justify-center py-5">
+      <div className="lg:px-40 md:px-24 sm:px-11 flex flex-1 justify-center py-5">
         <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
           <div className="flex flex-wrap justify-between gap-3 p-4">
             <p className="text-[#111418] tracking-light text-[32px] font-bold leading-tight min-w-72">タスク一覧</p>
@@ -84,7 +84,7 @@ const Dashboard = () => {
                 <div className="flex flex-col justify-center">
                   <p className="text-[#111418] text-base font-medium leading-normal line-clamp-1">{task.task_name}</p>
                   <p className="text-[#637588] text-sm font-normal leading-normal line-clamp-2">
-                    {task.due_date ? `Due ${new Date(task.due_date).toLocaleDateString()}` : 'No date available'}
+                    {task.due_date ? `Deadline ${new Date(task.due_date).toLocaleDateString()}` : 'No date available'}
                   </p>
                   <p className="text-[#111418] text-base font-medium leading-normal line-clamp-1">{task.task_description}</p>
                   <span className={`ml-2 text-sm ${task.done ? 'text-green-500' : 'text-red-500'}`}>
@@ -166,13 +166,15 @@ const Dashboard = () => {
               </div>
             ))
           ) : (
-            <div>No tasks available</div>
+            <div className="flex items-left p-4">
+              <p className="text-[#637588] text-start font-normal leading-normal">タスクが見つかりません...</p>
+            </div>
           )}
 
           <div className="flex px-4 py-3">
             <button
               onClick={() => router.push(`/create-task`)}
-              className="bg-green-500 text-white hover:bg-green-700 px-4 py-2 rounded-md text-sm font-medium"
+              className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-[#f0f2f4] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em]"
             >
               Add task
             </button>
