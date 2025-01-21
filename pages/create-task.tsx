@@ -2,6 +2,7 @@
 import React, { useState, FormEvent } from 'react';
 import { useRouter } from 'next/router';
 import AfterLogin from './components/headers/afterLogin';
+import Loading from "./components/loading/loading";
 
 const CreateTask: React.FC = () => {
   const [taskName, setTaskName] = useState('');
@@ -148,7 +149,7 @@ const CreateTask: React.FC = () => {
                 className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center rounded-xl h-10 px-4 bg-[#2d86e6] text-white text-sm font-bold"
                 disabled={loading}
               >
-                {loading ? 'Loading...' : isEdit ? 'Update Task' : 'Create Task'}
+                {loading ? <Loading /> : isEdit ? 'Update Task' : 'Create Task'}
               </button>
               <button
                 type="button"

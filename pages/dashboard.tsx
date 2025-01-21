@@ -6,6 +6,8 @@ import { auth } from "../firebase";
 import { onAuthStateChanged, User } from "firebase/auth";
 import AfterLoginHeader from "./components/headers/afterLogin";
 
+import Loading from "./components/loading/loading";
+
 interface Task {
   task_id: string;
   task_name: string;
@@ -65,7 +67,7 @@ const Dashboard = () => {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
 
   return (
     <>
