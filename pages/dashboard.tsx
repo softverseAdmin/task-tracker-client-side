@@ -81,7 +81,7 @@ const Dashboard = () => {
               <select
                 onChange={(e) => {
                   const sortOption = e.target.value;
-                  let sortedTasks = [...tasks];
+                  const sortedTasks = [...tasks];
 
                   switch (sortOption) {
                     case "name":
