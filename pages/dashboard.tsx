@@ -102,7 +102,7 @@ const Dashboard = () => {
                 className="bg-white border border-gray-300 rounded-md px-4 py-2 text-sm"
               >
                 <option value="">並び順</option>
-                <option value="name">Name</option>
+                <option value="name">名前</option>
                 <option value="done=true">完了済み</option>
                 <option value="done=false">未完了</option>
               </select>
